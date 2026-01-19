@@ -43,11 +43,11 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 bg-card/20">
+    <section id="portfolio" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Portfolio
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -60,7 +60,8 @@ const Portfolio = () => {
           {portfolioItems.map((item, index) => (
             <Card 
               key={index}
-              className="group bg-card/80 backdrop-blur-sm hover:bg-card/90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 overflow-hidden"
+              className="group
+               backdrop-blur-sm hover:bg-card/90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden">
@@ -97,7 +98,7 @@ const Portfolio = () => {
           <Button 
             size="lg"
             variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            className="border-primary text-primary bg-white hover:bg-primary hover:text-black"
           >
             View All Portfolio
           </Button>

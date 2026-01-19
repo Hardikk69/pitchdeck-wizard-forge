@@ -6,7 +6,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: "Starter",
-      price: "$2,500",
+      price: "$250",
       duration: "per deck",
       description: "Perfect for early-stage startups",
       features: [
@@ -21,7 +21,7 @@ const Pricing = () => {
     },
     {
       name: "Professional",
-      price: "$4,500", 
+      price: "$450", 
       duration: "per deck",
       description: "Most popular for growing companies",
       features: [
@@ -38,7 +38,7 @@ const Pricing = () => {
     },
     {
       name: "Enterprise",
-      price: "$8,000",
+      price: "$500",
       duration: "per deck",
       description: "For established companies seeking investment",
       features: [
@@ -47,7 +47,6 @@ const Pricing = () => {
         "Senior designer assigned",
         "Market research included",
         "Unlimited revisions",
-        "3-day delivery",
         "All formats + animations",
         "Financial model creation",
         "Investor database access",
@@ -58,11 +57,11 @@ const Pricing = () => {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-background">
+    <section id="pricing" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
             Prices
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -75,7 +74,7 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <Card 
               key={index}
-              className={`relative bg-card/80 backdrop-blur-sm transition-all duration-300 hover:shadow-xl ${
+              className={`relative text-black backdrop-blur-sm transition-all duration-300 hover:shadow-xl bg-card/85 ${
                 plan.popular 
                   ? 'ring-2 ring-primary shadow-lg shadow-primary/20 scale-105' 
                   : 'hover:shadow-primary/10'
@@ -131,7 +130,7 @@ const Pricing = () => {
           <p className="text-muted-foreground mb-4">
             All plans include our satisfaction guarantee. Not happy? We'll work until you are.
           </p>
-          <Button variant="ghost" className="text-primary hover:text-primary/80">
+          <Button variant="ghost" className="text-primary hover:text-foreground/100">
             Need a custom quote? Contact us
           </Button>
         </div>

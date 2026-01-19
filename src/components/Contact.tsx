@@ -51,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <Card className="bg-card/80 backdrop-blur-sm border border-border">

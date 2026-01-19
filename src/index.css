@@ -121,3 +121,10 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Power Grotesk';
+  src: url('./assets/PowerGrotesk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

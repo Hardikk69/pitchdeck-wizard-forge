@@ -6,22 +6,20 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "About", href: "#about", number: "01" },
-    { label: "Portfolio", href: "#portfolio", number: "02" },
-    { label: "Prices", href: "#pricing", number: "03" },
-    { label: "Blog", href: "#blog", number: "04" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Prices", href: "#pricing" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className="sticky top-10 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <div className="text-2xl font-bold text-primary">
-              Pitch Deck Creators
+              Sparc Deck
             </div>
-            <span className="ml-2 text-sm text-muted-foreground">Based in Switzerland</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -33,7 +31,6 @@ const Navigation = () => {
                 className="group flex flex-col items-center text-sm hover:text-primary transition-colors"
               >
                 <span className="text-foreground group-hover:text-primary">{item.label}</span>
-                <span className="text-xs text-muted-foreground">{item.number}</span>
               </a>
             ))}
           </div>
@@ -44,7 +41,9 @@ const Navigation = () => {
               Login
             </Button>
             <Button size="sm" className="bg-primary hover:bg-primary/90">
-              Book a Call
+              <a href="#contact">
+                Book a Call
+              </a>
             </Button>
           </div>
 
@@ -71,17 +70,9 @@ const Navigation = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span>{item.label}</span>
-                  <span className="text-xs text-muted-foreground">{item.number}</span>
                 </a>
               ))}
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="ghost" size="sm" className="justify-start">
-                  Login
-                </Button>
-                <Button size="sm" className="bg-primary hover:bg-primary/90">
-                  Book a Call
-                </Button>
-              </div>
+
             </div>
           </div>
         )}

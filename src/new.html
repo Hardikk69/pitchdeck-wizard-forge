@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hero overlay scroll</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:Inter,system-ui,Arial;overflow-x:hidden;background:#fff;color:#0b2b24}
+
+  .hero-fixed{
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    height:100vh;
+    z-index:1;
+    background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1800&q=60');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+
+  .hero-overlay-tint{
+    position:absolute;inset:0;background:rgba(3,56,46,0.35);pointer-events:none;
+  }
+
+  .hero-inner{
+    position:relative;z-index:2;padding:36px 4vw;color:#fff;width:100%;max-width:1400px;
+  }
+
+  .hero-logo{width:56px;height:56px;border-radius:50%;background:#fff7e0;display:inline-block;margin-top:12px}
+
+  .hero-spacer{height:100vh;width:100%}
+
+  .scroll-section{
+    position:relative;
+    z-index:2;
+    background:#f5f5f3;
+    border-radius:48px 48px 0 0;
+    margin-top:-1px;
+    box-shadow:0 -12px 40px rgba(6,20,18,0.14);
+    padding:56px 6vw 120px;
+    /* min-height:120vh; */
+    display:block;
+    overflow:hidden;
+  }
+
+  .scroll-inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:360px 1fr;grid-gap:48px;align-items:start;
+  }
+
+  .card{
+    background:#08352f;color:#f4ecd9;border-radius:18px;padding:44px 28px;height:240px;display:flex;align-items:center;justify-content:center;font-size:28px;
+  }
+
+  h1.big{
+    font-size:120px;font-weight:300;color:#08352f;margin:18px 0 12px;letter-spacing:6px;
+  }
+
+  .nav{
+    display:flex;align-items:center;gap:28px;padding-top:8px;
+  }
+
+  @media (max-width:900px){
+    .scroll-inner{grid-template-columns:1fr;gap:30px}
+    h1.big{font-size:48px}
+    .card{height:180px}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero-fixed" id="hero">
+    <div class="hero-overlay-tint"></div>
+    <div class="hero-inner">
+      <div class="nav">
+        <nav>navbar</nav>
+        <div class="hero-logo"></div>
+        <div style="margin-left:20px;font-size:18px">House of Elemints</div>
+      </div>
+      <div style="height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center;width:100%">
+          <div style="font-size:18px;opacity:.95">EXPERIENCE</div>
+          <div style="font-size:44px;color:#f7e9c9;margin-top:8px">HOUSE OF ELEMINTS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-spacer"></div>
+
+  <section class="scroll-section" id="scrollSection">
+    <div class="scroll-inner">
+      <div>
+        <div class="card">E<br/><small style="display:block;margin-top:12px;font-size:12px;color:#cfe6de">Excellence in Execution</small></div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;justify-content:flex-end">
+          <div style="background:#08352f;color:#fff;padding:12px 28px;border-radius:999px;display:inline-block">HOUSE OF ELEMINTS</div>
+        </div>
+        <h1 class="big">ELEMINTS</h1>
+        <p style="max-width:760px;color:#2b4039;line-height:1.6">
+          House of Elemints is a forward-thinking real estate company dedicated to delivering high quality projects and designs. This is a demo layout to show how the content area overlays a fixed hero and slides up smoothly as you scroll.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Keep hero fixed in place while scrolling
+    ScrollTrigger.create({
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      pin: true
+    });
+
+    // Animate the scroll section to overlay on hero
+    gsap.from(".scroll-section", {
+      y: "100%",
+      scrollTrigger: {
+        trigger: ".scroll-section",
+        start: "top bottom",
+        end: "top top",
+        scrub: true
+      }
+    });
+  </script>
+</body>
+</html>
